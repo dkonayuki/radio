@@ -1,0 +1,22 @@
+{
+  "name": "radio",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dkonayuki/radio",
+  "authors": [
+    "dkonayuki <dkonayuki@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
