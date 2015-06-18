@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Radio;
 
 class RadiosController extends Controller
 {
@@ -16,7 +17,9 @@ class RadiosController extends Controller
      */
     public function index()
     {
-        return view('radios.index');
+        $radios = Radio::all();
+
+        return view('radios.index', compact('radios'));
     }
 
     /**
