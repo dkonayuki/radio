@@ -8,8 +8,16 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Radio;
 
+use Input;
+use Redirect;
+use Log;
+
 class RadiosController extends Controller
 {
+    protected $rules = array(
+        'name' => ['required'],
+        'stream_url' => ['required']
+    );
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +37,7 @@ class RadiosController extends Controller
      */
     public function create()
     {
-        //
+        return view('radios.new');
     }
 
     /**
@@ -37,9 +45,16 @@ class RadiosController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $this->validate($request, $this->rules);
+        //Log::info('Request: ' . print_r($request));
+        //Log::info('Input: ' . print_r(Input::all()));
+         
+        $input = Input::all();
+        Radio::create($input);
+
+        return Redirect::route('radios.index')->with('message', 'Radio created');
     }
 
     /**
@@ -50,7 +65,9 @@ class RadiosController extends Controller
      */
     public function show($id)
     {
-        //
+        $radio = Radio::findOrFail($id);
+
+        return view('radios.show', ['radio' => $radio]);
     }
 
     /**
@@ -61,7 +78,9 @@ class RadiosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $radio = Radio::findOrFail($id);
+
+        return view('radios.edit', ['radio' => $radio]);
     }
 
     /**
@@ -83,6 +102,9 @@ class RadiosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $radio = Radio::findOrFail($id);
+
+        $radio->delete();
+        return Redirect::route('radios.index')->with('message', 'Radio deleted');
     }
 }

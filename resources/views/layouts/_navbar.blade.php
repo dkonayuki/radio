@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="{{ Request::is('radios*') ? 'active' : '' }}"><a href="{{ route('radios.index') }}">Home <span class="sr-only">(current)</span></a></li>
+        <li class="{{ Request::is('radios*') ? 'active' : '' }}"><a href="{{ route('radios.index') }}">Radio stations <span class="sr-only">(current)</span></a></li>
         <li class="{{ Request::is('users*') ? 'active' : '' }}"><a href="{{ route('users.show', '1') }}">Profile</a></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
