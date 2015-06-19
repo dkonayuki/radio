@@ -1,6 +1,5 @@
 $(document).ready(function() {
   var CSRF_TOKEN = $("meta[name='csrf-token']").attr('content');
-  console.log(CSRF_TOKEN);
 
   $('.radio-delete-btn').on('click', function() {
     var r = confirm("Are you sure?");

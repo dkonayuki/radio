@@ -89,9 +89,15 @@ class RadiosController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+        $this->validate($request, $this->rules);
+         
+        $input = Input::all();
+        $radio = Radio::findOrFail($id);
+        $radio->update($input);
+
+        return Redirect::route('radios.index')->with('message', 'Radio edited');
     }
 
     /**
