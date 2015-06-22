@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="{{ Request::is('radios*') ? 'active' : '' }}"><a href="{{ route('radios.index') }}">Radio stations <span class="sr-only">(current)</span></a></li>
-        <li class="{{ Request::is('users*') ? 'active' : '' }}"><a href="{{ route('users.show', '1') }}">Profile</a></li>
+        <li class="{{ Request::is('profile') ? 'active' : '' }}"><a href="{{ route('profile') }}">Profile</a></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -27,9 +27,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ route('users.show', 1) }}">Profile</a></li>
+            <li><a href="{{ route('profile') }}">Profile</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
           </ul>
         </li>
       </ul>

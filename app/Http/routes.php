@@ -14,6 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-    
+Route::get('/home', function () {
+   return Redirect::route('radios.index'); 
+}); 
+Route::get('/profile', [
+    'as' => 'profile', 'uses' => 'UsersController@profile'
+]);
 Route::resource('radios', 'RadiosController');
 Route::resource('users', 'UsersController');
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+    ]);

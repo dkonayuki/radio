@@ -21,6 +21,8 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers;
+    
+    protected $redirectTo = '/radios';
 
     /**
      * Create a new authentication controller instance.

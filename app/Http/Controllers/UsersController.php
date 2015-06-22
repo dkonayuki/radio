@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Auth;
 class UsersController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -50,6 +54,10 @@ class UsersController extends Controller
         return view('users.show');
     }
 
+    public function profile()
+    {
+        return view('users.show', ['user' => Auth::user()]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

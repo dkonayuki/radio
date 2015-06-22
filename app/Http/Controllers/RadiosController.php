@@ -14,10 +14,14 @@ use Log;
 
 class RadiosController extends Controller
 {
-    protected $rules = array(
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+    protected $rules = [
         'name' => ['required'],
         'stream_url' => ['required']
-    );
+    ];
     /**
      * Display a listing of the resource.
      *
