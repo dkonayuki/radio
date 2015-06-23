@@ -18,10 +18,13 @@
   margin: 0;
 }
 
+#radio-menu a {
+  margin-right: 15px;
+} 
+
 .alert-info {
   padding: 10px 20px 10px;
   margin-bottom: 10px;
 }
-
 
 /*# sourceMappingURL=app.css.map */

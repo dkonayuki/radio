@@ -17,3 +17,7 @@
   padding: 0;
   margin: 0;
 }
+
+#radio-menu a {
+  margin-right: 15px;
+} 
