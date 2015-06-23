@@ -9,7 +9,7 @@ $(document).ready(function() {
         url: $(this).attr('href'),
         data: {_method: 'DELETE', _token: CSRF_TOKEN},
         success: function(data) {
-          window.location.reload();
+          document.location.href = '/home';
         },
         error: function(XHR, message, errorThrown) {
           console.log(errorThrown);
