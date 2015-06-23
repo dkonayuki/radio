@@ -1,1 +1,1 @@
-{"version":3,"sources":["application.css"],"names":[],"mappings":"AAAA","file":"app.css","sourcesContent":[""],"sourceRoot":"/source/"}
+{"version":3,"sources":["application.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"app.css","sourcesContent":["#nav-login {\n  margin-top: 7px;\n}\n\n#nav-add {\n  margin-top: 7px;\n}\n"],"sourceRoot":"/source/"}

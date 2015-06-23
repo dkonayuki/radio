@@ -9,5 +9,4 @@
     </li>
     @endforeach
 </ul>
-<a class="btn btn-info" href="{{ route('radios.create') }}">New</a>
 @endsection

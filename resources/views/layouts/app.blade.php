@@ -9,7 +9,7 @@
 <meta name='csrf-token' content='{{ csrf_token() }}'/>
 </head>
 <body>
-@include ('layouts/_navbar')
+    @include ('layouts/_navbar')
     <div class="container">
         @if (Session::has('message'))
             <div class="flash alert-info">

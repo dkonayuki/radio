@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Redirect::route('home');
 });
-Route::get('/home', function () {
-   return Redirect::route('radios.index'); 
-}); 
+Route::get('/home', ['as' => 'home', function () {
+    return Redirect::route('radios.index'); 
+}]); 
 Route::get('/profile', [
     'as' => 'profile', 'uses' => 'UsersController@profile'
 ]);
