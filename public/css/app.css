@@ -4,6 +4,7 @@
 
 #nav-add {
   margin-top: 7px;
+  margin-right: 5px;
 }
 
 .close-notification {
@@ -22,9 +23,29 @@
   margin-right: 15px;
 } 
 
+#radio-index h2 {
+  text-align: center;
+}
+
 .alert-info {
   padding: 10px 20px 10px;
   margin-bottom: 10px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.form-control {
+  border-radius: 0; 
+}
+
+.thumbnail {
+  border-radius: 0;
+}
+
+.dropdown-menu {
+  border-radius: 0;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -4,6 +4,7 @@
 
 #nav-add {
   margin-top: 7px;
+  margin-right: 5px;
 }
 
 .close-notification {
@@ -21,3 +22,7 @@
 #radio-menu a {
   margin-right: 15px;
 } 
+
+#radio-index h2 {
+  text-align: center;
+}

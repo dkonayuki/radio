@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>PS Radio</title>
+    <title>Radio</title>
 {!! HTML::script('bower_components/jquery/dist/jquery.js') !!}
 {!! HTML::script('bower_components/bootstrap/dist/js/bootstrap.js') !!}
 {!! HTML::script('js/app.js') !!}
