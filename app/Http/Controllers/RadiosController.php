@@ -14,10 +14,14 @@ use Log;
 
 class RadiosController extends Controller
 {
-    protected $rules = array(
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+    protected $rules = [
         'name' => ['required'],
         'stream_url' => ['required']
-    );
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -52,9 +56,9 @@ class RadiosController extends Controller
         //Log::info('Input: ' . print_r(Input::all()));
          
         $input = Input::all();
-        Radio::create($input);
+        $radio = Radio::create($input);
 
-        return Redirect::route('radios.index')->with('message', 'Radio created');
+        return Redirect::route('radios.index')->with('message', 'Radio ' . $radio->name . ' created');
     }
 
     /**
@@ -97,7 +101,7 @@ class RadiosController extends Controller
         $radio = Radio::findOrFail($id);
         $radio->update($input);
 
-        return Redirect::route('radios.index')->with('message', 'Radio edited');
+        return Redirect::route('radios.show', $id)->with('message', 'Radio ' . $radio->name . ' edited');
     }
 
     /**

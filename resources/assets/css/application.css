@@ -1,0 +1,50 @@
+#nav-login {
+  margin-top: 7px;
+}
+
+#nav-add {
+  margin-top: 7px;
+  margin-right: 5px;
+}
+
+.close-notification {
+  float: right;
+  margin-right: -10px;
+  cursor: pointer;
+}
+
+.radio-item {
+  display: inline-block;
+  width: 200px;
+}
+
+.radio-item .caption h4 {
+  font-size: 14px;
+  padding: 5px 10px;
+  margin: 0;
+}
+
+#radio-menu a {
+  margin-right: 15px;
+} 
+
+#radio-index h2 {
+  text-align: center;
+}
+
+.radio-img {
+  display: block;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-transition: border .2s ease-in-out;
+  -o-transition: border .2s ease-in-out;
+  transition: border .2s ease-in-out;  
+}
+
+.radio-img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
