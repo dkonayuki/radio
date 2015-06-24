@@ -3,3 +3,5 @@
 .env
 *.swp
 /public/bower_components
+/public/css/*
+/public/js/*
