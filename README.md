@@ -18,6 +18,8 @@ composer install (install dependencies)
 
 php artisan key:generate
 
+npm install --global bower (install gulp)
+
 npm install --global gulp (install gulp)
 
 npm install (install elixir)
