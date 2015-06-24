@@ -3,6 +3,11 @@
   margin-bottom: 10px;
 }
 
+a:focus, a:hover {
+  color: #999;
+  text-decoration: none;
+}
+
 .btn {
   border-radius: 0;
 }
@@ -17,4 +22,8 @@
 
 .dropdown-menu {
   border-radius: 0;
+}
+
+.form-control:focus {
+  box-shadow: none;
 }

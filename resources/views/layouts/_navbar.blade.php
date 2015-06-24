@@ -20,9 +20,14 @@
 --!>
       </ul>
       <form id="radio-search" class="navbar-form navbar-left" role="search" action="{{ route('radios.index') }} ">
-        <div class="form-group">
+<div class="input-group">
           <input type="text" name="query" class="form-control" placeholder="Search" @if (isset($query)) value="{{ $query }}" @endif>
-        </div>
+    <div class="input-group-btn">
+        <button type="submit" class="btn btn-info btn-search">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    </div>
+</div>
       </form>
 @if (isset($current_user))
 

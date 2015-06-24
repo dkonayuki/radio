@@ -3,7 +3,9 @@
     <title>Radio</title>
 {!! HTML::script('bower_components/jquery/dist/jquery.js') !!}
 {!! HTML::script('bower_components/bootstrap/dist/js/bootstrap.js') !!}
+{!! HTML::script('bower_components/typeahead.js/dist/typeahead.bundle.min.js') !!}
 {!! HTML::script('js/app.js') !!}
+
 {!! HTML::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
 {!! HTML::style('css/app.css') !!}
 <meta name='csrf-token' content='{{ csrf_token() }}'/>

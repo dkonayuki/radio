@@ -20,6 +20,7 @@ Route::get('/home', ['as' => 'home', function () {
 Route::get('/profile', [
     'as' => 'profile', 'uses' => 'UsersController@profile'
 ]);
+Route::get('/search', 'RadiosController@search');
 Route::resource('radios', 'RadiosController');
 Route::resource('users', 'UsersController');
 

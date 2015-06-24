@@ -11,6 +11,7 @@ use App\Radio;
 use Input;
 use Redirect;
 use Log;
+use Response;
 
 class RadiosController extends Controller
 {
@@ -31,7 +32,7 @@ class RadiosController extends Controller
     {
         if (Input::has('query')) {
             $query = Input::get('query');
-            $radios = Radio::where('name', 'LIKE', "%$query%")->get();
+            $radios = Radio::search($query);
         } else {
             $radios = Radio::all();
         }
@@ -39,6 +40,14 @@ class RadiosController extends Controller
         return view('radios.index', compact('radios', 'query'));
     }
 
+    public function search()
+    {
+        $query = Input::get('query');
+        error_log($query);
+        $response = Radio::search($query);
+        error_log($response);
+        return Response::json($response);
+    }
     /**
      * Show the form for creating a new resource.
      *
