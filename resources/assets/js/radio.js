@@ -19,4 +19,14 @@ $(document).ready(function() {
 
     return false;
   });
+
+  var container = document.querySelector("#radios-list");
+  if (container != null) {
+    var msnry = new Masonry( container, {
+      // options
+      "gutter": 20,
+      "isFitWidth": true,
+      itemSelector: ".radio-item"
+    });
+  }
 });

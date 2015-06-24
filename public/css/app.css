@@ -13,15 +13,23 @@
   cursor: pointer;
 }
 
+#radios-list {
+  margin: 0 auto;
+}
+
 .radio-item {
   display: inline-block;
   width: 200px;
+  height: 180px;
+  border: 1px solid #999;
+  margin-bottom: 20px;
 }
 
-.radio-item .caption h4 {
+.radio-title h4 {
   font-size: 14px;
-  padding: 5px 10px;
+  padding: 7px 10px;
   margin: 0;
+  text-align: center;
 }
 
 #radio-menu a {
@@ -33,11 +41,9 @@
 }
 
 .radio-img {
+  width: 198px;
+  height: 150px;
   display: block;
-  margin-bottom: 20px;
-  line-height: 1.42857143;
-  background-color: #fff;
-  border: 1px solid #ddd;
   -webkit-transition: border .2s ease-in-out;
   -o-transition: border .2s ease-in-out;
   transition: border .2s ease-in-out;  
@@ -294,6 +300,10 @@ a:focus, a:hover {
 
 .form-control:focus {
   box-shadow: none;
+}
+
+a {
+  color: #666;
 }
 
 /*# sourceMappingURL=app.css.map */
