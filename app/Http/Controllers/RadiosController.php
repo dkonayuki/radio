@@ -29,9 +29,14 @@ class RadiosController extends Controller
      */
     public function index()
     {
-        $radios = Radio::all();
+        if (Input::has('query')) {
+            $query = Input::get('query');
+            $radios = Radio::where('name', 'LIKE', "%$query%")->get();
+        } else {
+            $radios = Radio::all();
+        }
 
-        return view('radios.index', compact('radios'));
+        return view('radios.index', compact('radios', 'query'));
     }
 
     /**

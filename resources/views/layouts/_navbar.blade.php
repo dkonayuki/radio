@@ -19,9 +19,9 @@
         <li class="{{ Request::is('profile') ? 'active' : '' }}"><a href="{{ route('profile') }}">Profile</a></li>
 --!>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form id="radio-search" class="navbar-form navbar-left" role="search" action="{{ route('radios.index') }} ">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" name="query" class="form-control" placeholder="Search" @if (isset($query)) value="{{ $query }}" @endif>
         </div>
       </form>
 @if (isset($current_user))
