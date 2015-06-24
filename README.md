@@ -25,3 +25,5 @@ bower install (install frontend dependencies)
 npm install --global gulp (install gulp)
 
 npm install (install elixir)
+
+default account: admin (password: admin)
