@@ -20,7 +20,7 @@ php artisan key:generate
 
 npm install --global bower (install gulp)
 
-bower install (install frontend dependencies)
+**bower install** (install frontend dependencies)
 
 npm install --global gulp (install gulp)
 
@@ -28,4 +28,4 @@ npm install (install elixir)
 
 default account: admin (password: admin)
 
-make sure to run: gulp watch to prepare js and css files
+make sure to run: **gulp watch** to prepare js and css files
