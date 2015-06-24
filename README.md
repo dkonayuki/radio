@@ -20,6 +20,8 @@ php artisan key:generate
 
 npm install --global bower (install gulp)
 
+bower install (install frontend dependencies)
+
 npm install --global gulp (install gulp)
 
 npm install (install elixir)
