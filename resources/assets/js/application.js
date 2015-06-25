@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  window.CSRF_TOKEN = $("meta[name='csrf-token']").attr('content');
 
   $(document).on('click', '.close-notification', function(){
     $(this).parent().fadeOut(1000); // could use .remove(), .slideUp() etc

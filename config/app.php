@@ -144,6 +144,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        'App\Providers\ViewControllerNameProvider',
         'App\Providers\ViewComposerServiceProvider',
         'Illuminate\Html\HtmlServiceProvider'
     ],

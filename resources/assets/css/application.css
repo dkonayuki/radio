@@ -34,61 +34,6 @@
   cursor: pointer;
 }
 
-#radios-list {
-  margin: 0 auto;
-}
-
-#radio-pagination {
-  text-align: center;
-}
-
-.radio-item {
-  display: inline-block;
-  width: 200px;
-  height: 180px;
-  border: 1px solid #999;
-  margin-bottom: 20px;
-}
-
-.radio-title h4 {
-  font-size: 14px;
-  padding: 0 7px;
-  margin: 0;
-  text-align: center;
-  line-height: 28px;
-  height: 28px;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden; 
-}
-
-#radio-menu a {
-  margin-right: 15px;
-} 
-
-#radio-index h3 {
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 20px;
-}
-
-.radio-img {
-  width: 198px;
-  height: 150px;
-	overflow: hidden;
-  display: block;
-  -webkit-transition: border .2s ease-in-out;
-  -o-transition: border .2s ease-in-out;
-  transition: border .2s ease-in-out;  
-}
-
-.radio-img img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
 .btn-search {
   height: 34px;
 }

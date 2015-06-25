@@ -10,7 +10,7 @@
 {!! HTML::style('css/app.css') !!}
 <meta name='csrf-token' content='{{ csrf_token() }}'/>
 </head>
-<body>
+<body class="{{ $controller }} {{ $action }}">
     @include ('layouts/_navbar')
     <div class="container">
         @if (Session::has('message'))

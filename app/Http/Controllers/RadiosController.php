@@ -126,6 +126,7 @@ class RadiosController extends Controller
      */
     public function destroy($id)
     {
+        error_log('wassup');
         $radio = Radio::findOrFail($id);
 
         $radio->delete();
