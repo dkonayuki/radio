@@ -4,8 +4,12 @@
 }
 
 a:focus, a:hover {
-  color: #999;
+  color: #000;
   text-decoration: none;
+}
+
+.navbar-toggle {
+	border-radius: 0;
 }
 
 .btn {

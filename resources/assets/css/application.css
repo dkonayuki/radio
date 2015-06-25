@@ -43,6 +43,7 @@
 .radio-img {
   width: 198px;
   height: 150px;
+	overflow: hidden;
   display: block;
   -webkit-transition: border .2s ease-in-out;
   -o-transition: border .2s ease-in-out;
