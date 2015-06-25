@@ -26,7 +26,7 @@ $(document).ready(function() {
     name: 'radio-list',
     templates: {
       suggestion: function(data) {
-        return "<a href=" + data.typeahead_url + "><div class='tt-suggestion tt-selectable'>" + data.name + "</div></a>"
+        return "<a href=" + data.typeahead_url + "><div class='typeahead-des'>" + data.name + "</div></a>"
       },
       empty: [
         '<div class="tt-empty">Radio not found.</div>'

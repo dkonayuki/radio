@@ -32,9 +32,9 @@ class RadiosController extends Controller
     {
         if (Input::has('query')) {
             $query = Input::get('query');
-            $radios = Radio::search($query);
+            $radios = Radio::search($query)->paginate(10);
         } else {
-            $radios = Radio::all();
+            $radios = Radio::paginate(10);
         }
 
         return view('radios.index', compact('radios', 'query'));
@@ -44,7 +44,7 @@ class RadiosController extends Controller
     {
         $query = Input::get('query');
         error_log($query);
-        $response = Radio::search($query);
+        $response = Radio::search($query)->get();
         error_log($response);
         return Response::json($response);
     }

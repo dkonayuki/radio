@@ -11,7 +11,7 @@ class Radio extends Model
 
     public static function search($query)
     {
-        return Radio::where('name', 'LIKE', "%$query%")->get();
+        return Radio::where('name', 'LIKE', "%$query%");
     }
 
     public function getTypeaheadUrlAttribute()

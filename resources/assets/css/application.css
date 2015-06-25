@@ -1,3 +1,24 @@
+.typeahead-des {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#radio-search .input-group {
+  background: #fff;
+}
+
+#radio-search-input {
+  min-width: 200px;
+}
+
+@media(max-width: 767px) {
+  #radio-search-input {
+    min-width: 0;
+  }
+}
+
 #nav-login {
   margin-top: 7px;
 }
@@ -17,6 +38,10 @@
   margin: 0 auto;
 }
 
+#radio-pagination {
+  text-align: center;
+}
+
 .radio-item {
   display: inline-block;
   width: 200px;
@@ -27,17 +52,25 @@
 
 .radio-title h4 {
   font-size: 14px;
-  padding: 7px 10px;
+  padding: 0 7px;
   margin: 0;
   text-align: center;
+  line-height: 28px;
+  height: 28px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden; 
 }
 
 #radio-menu a {
   margin-right: 15px;
 } 
 
-#radio-index h2 {
+#radio-index h3 {
   text-align: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 .radio-img {
