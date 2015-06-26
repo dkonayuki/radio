@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Radio extends Model
 {
     protected $guarded = [];
-    protected $appends = array('typeahead_url');
+    protected $appends = ['typeahead_url', 'typeahead_img'];
 
     public static function search($query)
     {
@@ -17,5 +17,10 @@ class Radio extends Model
     public function getTypeaheadUrlAttribute()
     {
         return route('radios.show', $this->id);
+    }
+
+    public function getTypeaheadImgAttribute()
+    {
+        return asset('images/radio_logo.jpg');
     }
 }

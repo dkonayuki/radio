@@ -1,8 +1,42 @@
-.typeahead-des {
+.typeahead-img {
+  height: 40px;
+  width: 40px;
+  float: left;
+  padding: 4px;
   overflow: hidden;
-  width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+}
+
+.typeahead-content {
+  overflow: hidden;
+  width: auto;
+  padding: 5px 2px 5px 5px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.typeahead-name {
+	color: #222;
+	font-size: 12px;
+	line-height: 16px;
+	height: 16px;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.typeahead-des {
+  font-size: 9px;
+  color: #999;
+  line-height: 16px;
+}
+
+.tt-suggestion:hover .typeahead-des {
+  color: #fff;
+}
+
+.tt-suggestion:hover .typeahead-name {
+  color: #fff;
 }
 
 #radio-search .input-group {
