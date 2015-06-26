@@ -26,6 +26,6 @@ npm install --global gulp (install gulp)
 
 npm install (install elixir)
 
-default account: admin (password: admin)
+default account: admin/foo@bar.com (password: admin)
 
 make sure to run: **gulp watch** to prepare js and css files
