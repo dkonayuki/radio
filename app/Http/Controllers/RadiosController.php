@@ -72,6 +72,22 @@ class RadiosController extends Controller
         $input = Input::all();
         $radio = Radio::create($input);
 
+        if (Input::hasFile('image')) {
+            $file = Input::file('image');
+            #return [
+            #    'path'  => $file->getRealPath(),
+            #    'size'  => $file->getSize(),
+            #    'mime'  => $file->getMimeType(),
+            #    'name'  => $file->getClientOriginalName(),
+            #    'extension'    => $file->getClientOriginalExtension()
+            #];
+            $name = time() . '-' . $file->getClientOriginalName();
+            $file = $file->move(public_path() . '/uploads/radios/' . $radio->id, $name);
+
+            $radio->image = $name;
+            $radio->save();
+        }
+
         return Redirect::route('radios.index')->with('message', 'Radio ' . $radio->name . ' created');
     }
 

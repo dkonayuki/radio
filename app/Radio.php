@@ -21,6 +21,14 @@ class Radio extends Model
 
     public function getTypeaheadImgAttribute()
     {
+        return $this->getImgUrl();
+    }
+
+    public function getImgUrl()
+    {
+        if ($this->image != '') {
+            return asset('uploads/radios/' . $this->id . '/' . $this->image);
+        }
         return asset('images/radio_logo.jpg');
     }
 }

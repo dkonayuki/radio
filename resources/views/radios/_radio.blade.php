@@ -1,6 +1,6 @@
 <div class="radio-item">
     <div class="radio-img">
-        <img src="{{ asset('images/radio_logo.jpg') }}" alt="...">
+        <img src="{{ $radio->getImgUrl() }}"></img>
     </div>
     <div class="radio-title">  
         <a href="{{ route('radios.show', $radio->id) }}">

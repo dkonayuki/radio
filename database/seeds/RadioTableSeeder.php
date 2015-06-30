@@ -29,8 +29,7 @@ class RadioTableSeeder extends Seeder
             App\Radio::create([
                 'name' => $faker->sentence,
                 'description' => $faker->paragraph(4),
-                'stream_url' => $faker->sentence,
-                'image' => $faker->imageUrl(300, 200)
+                'stream_url' => $faker->sentence
             ]);
         }
     }

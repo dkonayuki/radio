@@ -25,6 +25,7 @@ $(document).ready(function() {
     displayKey: 'name',
     source: engine,
     name: 'radio-list',
+    limit: 6,
     templates: {
       suggestion: function(data) {
         return "<a href=" + data.typeahead_url + ">" +
