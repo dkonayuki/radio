@@ -24,7 +24,7 @@ npm install --global bower (install bower, use bower.json)
 
 npm install --global gulp (install gulp)
 
-npm install (install elixir)
+npm install (install elixir, npm uses package.json)
 
 default account: admin/foo@bar.com (password: admin)
 
