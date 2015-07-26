@@ -7,3 +7,4 @@
 /public/js/*
 .DS_Store
 /public/uploads/*
+.idea/
