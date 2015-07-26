@@ -7,6 +7,10 @@
     {!! Form::text('stream_url') !!}
 </div>
 <div class="form-group">
+    {!! Form::label('schedule_url', 'Schedule URL:') !!}
+    {!! Form::text('schedule_url') !!}
+</div>
+<div class="form-group">
     {!! Form::label('description', 'Description:') !!}
     {!! Form::textarea('description') !!}
 </div>

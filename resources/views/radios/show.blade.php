@@ -9,7 +9,10 @@
     <audio controls src="{{ $radio->stream_url }}"></audio>
     <br/>
     <div id="radio-show-des">
-        {{ $radio->description }}
+	{{ $radio->description }}
+        <div>
+           {{ $radio->schedule_url }} 
+        </div>
     </div>
     <div id="radio-show-menu">
         <a class="btn btn-info" href="{{ route('radios.edit', $radio->id) }}">Edit</a>
