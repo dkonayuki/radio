@@ -18,7 +18,7 @@ composer install (install dependencies)
 
 php artisan key:generate
 
-npm install --global bower (install gulp)
+npm install --global bower (install bower, use bower.json)
 
 **bower install** (install frontend dependencies)
 
