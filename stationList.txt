@@ -1,0 +1,79 @@
+Radio Name	Website	Timetable site	Parseble	
+HBCラジオ	http://www.hbc.co.jp/radio/	http://www4.hbc.co.jp/programTable/radio.php	Yes	
+STVラジオ	http://www.stv.ne.jp/radio/index.html	http://www.stv.ne.jp/radio/timetable/index.html	No	
+AIR-G'（FM北海道）	http://www.air-g.co.jp/	http://www.air-g.co.jp/timetable/index.php	Not directly	link changes depending on the day
+FM NORTH WAVE	http://www.825.fm/	http://www.fmnorth.co.jp/timetable.asp	Yes	
+RAB青森放送	http://www.rab.co.jp/	http://www.rab.co.jp/program/rd-a.html	Yes	
+IBCラジオ	http://www.ibc.co.jp/	http://www.ibc.co.jp/radio/timetable/	Yes	
+TBCラジオ	http://www.tbc-sendai.co.jp/	http://skip.tbc-sendai.co.jp/rpg/week_view.php	Yes	
+YBCラジオ	http://ybc.co.jp/	http://ybc.co.jp/frame/radio/ratt.html	Yes	
+RFCラジオ福島[注 12]	http://www.rfc.jp/	http://www.rfc.jp/schedule/schedule.php?weekday=7#hour_18	Yes	
+ふくしまFM	http://www.fmf.co.jp/	http://www.fmf.co.jp/pc2/timetable/	Yes	
+TBSラジオ	http://www.tbs.co.jp/radio/	http://www.tbs.co.jp/radio/todays954/index-j.html	No	
+文化放送	http://www.joqr.co.jp/	http://www.joqr.co.jp/programsheet.php	Yes	
+ニッポン放送	http://www.jolf.co.jp/	http://www.1242.com/timetable/index_day.php, http://www.1242.com/timetable/index_day.php 	Maybe	
+TOKYO FM	http://www.tfm.co.jp/	http://www.tfm.co.jp/timetable/	Yes	
+J-WAVE	http://www.j-wave.co.jp/	http://www.j-wave.co.jp/today/	Yes	
+InterFM[注 15]	http://www.interfm.co.jp/	http://www.interfm.co.jp/timetable/?region=tokyo	Yes	
+ラジオ日本[注 16]	http://www.jorf.co.jp/	http://www.jorf.co.jp/timetable/	Yes	
+FMヨコハマ	http://www.fmyokohama.co.jp/	http://www.fmyokohama.co.jp/pc/timetable/sun/	Yes	
+bayfm78	http://www.bayfm.co.jp/	http://www.bayfm.co.jp/table/	Yes	
+NACK5	http://www.nack5.co.jp/	http://www.nack5.co.jp/timetable.shtml	Yes	
+IBS茨城放送	http://www.ibs-radio.com/			
+RadioBerry	http://www.berry.co.jp/			
+CRT栃木放送	http://www.crt-radio.co.jp/			
+FMぐんま	http://www.fmgunma.com/			
+SBCラジオ[注 18]	http://www.sbc21.co.jp/			
+FM長野	http://www.fmnagano.co.jp/			
+BSNラジオ	http://www.ohbsn.com/			
+FM NIIGATA	http://www.fmniigata.com/			
+FM PORT	http://www.fmport.com/			
+KNBラジオ	http://www.knb.ne.jp/			
+FMとやま	http://www.fmtoyama.co.jp/			
+MRO北陸放送ラジオ	http://www.mro.co.jp/			
+エフエム石川	http://hellofive.jp/			
+FBCラジオ	http://www.fbc.jp/			
+SBSラジオ	http://www.at-s.com/			
+K-MIX SHIZUOKA	http://www.k-mix.co.jp/			
+CBCラジオ	http://hicbc.com/radio/			
+東海ラジオ	http://www.tokairadio.co.jp/			
+ZIP-FM	http://zip-fm.co.jp/index1.asp			
+@FM（FM AICHI）	http://fma.co.jp/			
+InterFM NAGOYA	http://www.interfm.co.jp/			
+ぎふチャン	www.zf-web.com			
+レディオキューブ FM三重	http://www.fmmie.jp/			
+MBSラジオ	http://www.mbs1179.com/			
+ABCラジオ	http://abc1008.com/			
+OBCラジオ大阪	http://www.obc1314.co.jp/			
+FM OSAKA	http://www.fmosaka.net/			
+FM802	http://funky802.com/			
+FM COCOLO[注 26]	http://www.cocolo.jp/			
+Kiss FM KOBE	http://kiss-fm.co.jp/			
+CRKラジオ関西	http://jocr.jp/			
+KBS京都ラジオ	http://www.kbs-kyoto.co.jp/			
+α-STATION FM京都	http://fm-kyoto.jp/			
+e-radio FM滋賀	http://www.e-radio.co.jp/			
+wbs和歌山放送	http://wbs.co.jp/			
+BSSラジオ	http://www.bss.jp/			
+RSKラジオ	http://www.rsk.co.jp/radio/			
+RCCラジオ	http://www.rcc.net/			
+広島FM	http://hfm.jp/			
+RNB南海放送	http://www.rnb.co.jp/			
+RKC高知放送	http://www.rkc-kochi.co.jp/top/			
+JRT四国放送	http://www.jrt.co.jp/			
+RKBラジオ	http://rkbr.jp/			
+KBCラジオ	http://www.kbc.co.jp/radio/			
+FM FUKUOKA	http://fmfukuoka.jp/			
+LOVE FM[注 33]	http://www.lovefm.co.jp/			
+cross fm	http://www.crossfm.co.jp/			
+NBC長崎放送	http://www.nbc-nagasaki.co.jp/			
+FM長崎	http://www.fmnagasaki.co.jp/			
+RKKラジオ	http://rkk.jp/			
+FMKエフエム熊本	http://www.fmk.fm/			
+OBSラジオ	http://www.e-obs.com/			
+エフエム大分	http://www.fmoita.co.jp/			
+宮崎放送	http://mrt.jp/			
+MBCラジオ	http://www.mbc.co.jp/			
+RBCiラジオ	http://www.rbc.co.jp/			
+ラジオNIKKEI第1	http://www.radionikkei.jp/			
+放送大学	http://www.ouj.ac.jp/index.html			
