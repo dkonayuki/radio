@@ -28,3 +28,8 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
     ]);
+
+Route::group(['prefix' => 'api/v1.0'], function()
+{
+    Route::resource('radios', 'RadiosController');
+});
