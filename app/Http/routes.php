@@ -31,5 +31,5 @@ Route::controllers([
 
 Route::group(['prefix' => 'api/v1.0'], function()
 {
-    Route::resource('radios', 'RadiosController');
+    Route::resource('radios', 'APIRadiosController');
 });
