@@ -19,6 +19,7 @@
         <li class="{{ Request::is('profile') ? 'active' : '' }}"><a href="{{ route('profile') }}">Profile</a></li>
 --!>
       </ul>
+@if (isset($current_user))
       <form id="radio-search" class="navbar-form navbar-left" role="search" action="{{ route('radios.index') }} ">
         <div class="input-group">
             <input id="radio-search-input" type="text" name="query" class="form-control" placeholder="Search" @if (isset($query)) value="{{ $query }}" @endif>
@@ -29,7 +30,6 @@
             </div>
         </div>
       </form>
-@if (isset($current_user))
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -43,7 +43,7 @@
       </ul>
     <a id="nav-add" href="{{ route('radios.create') }}" class="btn btn-default navbar-right">Add</a>
 @else
-      <a id="nav-login" class="btn btn-default navbar-right" href="{{ url('/auth/login/') }}">Login</a>
+      <a id="nav-login" class="btn btn-default navbar-right" href="{{ url('/auth/register/') }}">Register</a>
 @endif
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
