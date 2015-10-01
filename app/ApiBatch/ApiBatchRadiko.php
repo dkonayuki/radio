@@ -16,7 +16,7 @@ use \App\Radio;
 class ApiBatchRadiko extends ApiBatchBase
 {
     const API_CATEGORY_ID = 1;
-    const BASE_URL = "http://localhost:45000/"; // "http://radiko.jp/v2/";
+    const BASE_URL = "http://radiko.jp/v2/"; // "http://localhost:45000/";
 
     function __construct()
     {
@@ -25,22 +25,22 @@ class ApiBatchRadiko extends ApiBatchBase
 
     /**
      * Function that returns list of programs for given radio for today
-     * @param int $radio_id Radio ID
+     * @param int $radio_api_key Radio ID
      * @return mixed Request result
      */
-    public function getPrograms($radio_id)
+    public function getPrograms($radio_api_key)
     {
         $this->setUrl(ApiBatchRadiko::BASE_URL)
             ->setMethod(ApiBatchBase::METHOD_GET)
             ->setTarget('api/program/station/today')
-            ->setParams(array('station_id' => $radio_id));
+            ->setParams(array('station_id' => $radio_api_key));
 
         $res = null;
         try {
             $res = $this->execute();
         } catch (\Exception $ex) {
-            echo "Radiko API call failed for station: [$radio_id] " . ", Err: " . $ex->getMessage(); // TODO: remove echoes
-            \Log::alert("Radiko API call failed for station: [$radio_id] " . ", Err: " . $ex->getMessage());
+            echo "Radiko API call failed for station: [$radio_api_key] " . ", Err: " . $ex->getMessage(); // TODO: remove echoes
+            \Log::alert("Radiko API call failed for station: [$radio_api_key] " . ", Err: " . $ex->getMessage());
         }
 
         // parse XML result
@@ -49,6 +49,11 @@ class ApiBatchRadiko extends ApiBatchBase
         // TODO: parse images from result
     }
 
+    /**
+     * Gets list of stations for evey area in Japan [ONLY RUN ONCE, should NOT be a batch]
+     * Note: There is possibility that stations might duplicate
+     * @throws ApiBatchException
+     */
     public function populateRadios()
     {
         foreach ($this->area_list as $key => $val) {
@@ -82,24 +87,49 @@ class ApiBatchRadiko extends ApiBatchBase
                 echo "\n";
                 echo (string)$sxe_station->logo_large;
                 echo "\n";
-                $local_logo = public_path() . "/images/media/" . (string)$sxe_station->id . '_' . basename((string)$sxe_station->logo_large);
-                copy((string)$sxe_station->logo_large, $local_logo);
+
+                $local_logo = "/images/media/" . (string)$sxe_station->id . '_' . basename((string)$sxe_station->logo_large);
+                copy((string)$sxe_station->logo_large, public_path() . $local_logo);
 
                 Radio::create([
                     'name' => (string)$sxe_station->name,
                     'description' => (string)$sxe_station->ascii_name,
-                    'stream_url' => '',
-                    'logo_url' => "/images/media/" . (string)$sxe_station->id . '_' . basename((string)$sxe_station->logo_large),
+                    'stream_url' => $this->getRadikoSURL((string)$sxe_station->id),
+                    'logo_url' => $local_logo,
                     'website' => (string)$sxe_station->href,
                     'api_key' => (string)$sxe_station->id,
                     'api_category_id' => ApiBatchRadiko::API_CATEGORY_ID
                 ]);
             }
-
-
-            exit;
-            // TODO: get logos for each station
+            usleep(500); // sleep for half millisecond
         }
+    }
+
+    /**
+     * Radiko API doesn't provide stations list with stream URL.
+     * We need to call API 2nd time to get it.
+     * @param string  $radio_api_key API key
+     * @return string curled URL
+     * @throws ApiBatchException
+     */
+    public function getRadikoSURL($radio_api_key)
+    {
+        //http://radiko.jp/v2/station/stream/TBS.xml
+        $this->setUrl(ApiBatchRadiko::BASE_URL)
+            ->setMethod(ApiBatchBase::METHOD_GET)
+            ->setTarget('station/stream/' . $radio_api_key . '.xml');
+
+        $res = null;
+        try {
+            $res = $this->execute();
+        } catch (\Exception $ex) {
+            echo "Radiko API call[stream] failed for station: [$radio_api_key] " . ", Err: " . $ex->getMessage(); // TODO: remove echoes
+            \Log::alert("Radiko API call[stream] failed for station: [$radio_api_key] " . ", Err: " . $ex->getMessage());
+        }
+
+        // parse XML result
+        $resX = simplexml_load_string($res);
+        return ((string) ($resX->item[0]));
     }
 
 
@@ -190,31 +220,5 @@ class ApiBatchRadiko extends ApiBatchBase
      <!-- other <station>s -->
    </stations>
  </radiko>
-
-    Sample response for stations list
- <stations area_id="JP13" area_name="TOKYO JAPAN">
-   <station>
-     <id>TBS</id>
-     <name>TBSラジオ</name>
-     <ascii_name>TBS RADIO</ascii_name>
-     <href>http://www.tbs.co.jp/radio/</href>
-     <logo_xsmall>http://radiko.jp/station/logo/TBS/logo_xsmall.png</logo_xsmall>
-     <logo_small>http://radiko.jp/station/logo/TBS/logo_small.png</logo_small>
-     <logo_medium>http://radiko.jp/station/logo/TBS/logo_medium.png</logo_medium>
-     <logo_large>http://radiko.jp/station/logo/TBS/logo_large.png</logo_large>
-     <logo width="124" height="40">http://radiko.jp/v2/static/station/logo/TBS/124x40.png</logo>
-     <logo width="344" height="80">http://radiko.jp/v2/static/station/logo/TBS/344x80.png</logo>
-     <logo width="688" height="160">http://radiko.jp/v2/static/station/logo/TBS/688x160.png</logo>
-     <logo width="172" height="40">http://radiko.jp/v2/static/station/logo/TBS/172x40.png</logo>
-     <logo width="224" height="100">http://radiko.jp/v2/static/station/logo/TBS/224x100.png</logo>
-     <logo width="448" height="200">http://radiko.jp/v2/static/station/logo/TBS/448x200.png</logo>
-     <logo width="112" height="50">http://radiko.jp/v2/static/station/logo/TBS/112x50.png</logo>
-     <logo width="168" height="75">http://radiko.jp/v2/static/station/logo/TBS/168x75.png</logo>
-     <logo width="258" height="60">http://radiko.jp/v2/static/station/logo/TBS/258x60.png</logo>
-     <feed>http://radiko.jp/station/feed/TBS.xml</feed>
-     <banner>http://radiko.jp/res/banner/TBS/20130329155819.jpg</banner>
-   </station>
-     <!-- other <station>s -->
- </stations>
      * */
 }

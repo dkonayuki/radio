@@ -153,7 +153,7 @@ abstract class ApiBatchBase
                     curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
                 } else {
                     curl_setopt($ch, CURLOPT_HTTPGET, 1);
-                    $request_url .= ('?' . $query);
+                    $request_url .= (empty($query) ? '' : ('?' . $query));
                 }
 
                 curl_setopt($ch, CURLOPT_URL, $request_url);

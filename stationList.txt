@@ -77,3 +77,10 @@ MBCラジオ	http://www.mbc.co.jp/
 RBCiラジオ	http://www.rbc.co.jp/			
 ラジオNIKKEI第1	http://www.radionikkei.jp/			
 放送大学	http://www.ouj.ac.jp/index.html			
+
+
+
+|---------------------------------------------------------------------|
+|;; How to play radiko stram URLs (need to rewrite script for iOS)    |
+| https://gist.github.com/zarigani/4555169			       |
+|---------------------------------------------------------------------|

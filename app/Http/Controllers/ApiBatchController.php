@@ -15,6 +15,10 @@ use App\ApiBatch\ApiBatchRadiko;
  */
 class ApiBatchController extends Controller
 {
+    const RADIO_CATEGORY_IDS = array(
+        1 => 'ApiBatchRadiko'
+    );
+
     //TODO: add index(), update() methods + authorization
     public function index()
     {
@@ -24,7 +28,19 @@ class ApiBatchController extends Controller
 
     public function update()
     {
-
+        // get all radios sorted by API_CATEGORY_IDS
+        // ex: `SELECT * FROM radios ORDER BY api_category_id DESC`
+        // $last_cid = $radios[0]['api_category_id'];
+        // $last_class = ApiBatchController::RADIO_CATEGORY_IDS[$last_cid];
+        // $c_API = new $last_class(); // not sure about this line
+        // foreach ($radios as $radio) {
+        //  if($radio['api_category_id'] != $last_cid) {
+        //      $last_class = ApiBatchController::RADIO_CATEGORY_IDS[$last_cid];
+        //      $c_API = new $last_class();
+        //      $last_cid = $radio['api_category_id'];
+        //  }
+        //  $c_API->getPrograms($radio['api_key']);
+        //}
     }
 
 }
