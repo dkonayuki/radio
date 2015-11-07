@@ -11,7 +11,7 @@
     <div id="radio-show-des">
 	{{ $radio->description }}
         <div>
-           {{ $radio->schedule_url }} 
+           blah
         </div>
     </div>
     <div id="radio-show-menu">
