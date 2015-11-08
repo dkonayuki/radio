@@ -8,9 +8,17 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Response;
 use App\Radio;
+use App\Helpers\Transformers\RadioTransformer;
 
 class APIRadiosController extends Controller
 {
+
+    protected $radioTransformer;
+
+    function __construct() {
+        $this->radioTransformer = new RadioTransformer;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +29,7 @@ class APIRadiosController extends Controller
         $radios = Radio::all();
 
         return Response::json([
-            'data' => $this->transformCollection($radios)
+            'data' => $this->radioTransformer->transformCollection($radios->all())
         ], 200);
     }
 
@@ -62,7 +70,7 @@ class APIRadiosController extends Controller
         }
 
         return Response::json([
-            'data' => $this->transform($radio)
+            'data' => $this->radioTransformer->transform($radio)
         ], 200);
     }
 
@@ -99,20 +107,4 @@ class APIRadiosController extends Controller
         //
     }
 
-    private function transformCollection($radios) {
-        return array_map([$this, 'transform'], $radios->toArray());
-    }
-
-    private function transform($radio) {
-        return [
-            'id'            => $radio['id'],
-            'name'          => $radio['name'],
-            'description'   => $radio['description'],
-            'logo_url'      => $radio['logo_url'],
-            'stream_url'    => $radio['stream_url'],
-            'website'       => $radio['website'],
-            'status'        => $radio['status']
-        ];
-
-    }
 }
