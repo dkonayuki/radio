@@ -21,7 +21,7 @@ class APIRadiosController extends Controller
         $radios = Radio::all();
 
         return Response::json([
-            'data' => $radios->toArray()
+            'data' => $this->transformCollection($radios)
         ], 200);
     }
 
@@ -53,7 +53,17 @@ class APIRadiosController extends Controller
      */
     public function show($id)
     {
-        //
+        $radio = Radio::find($id);
+
+        if (!$radio) {
+            return Response::json([
+                'error' => 'Radio does not exist'
+            ], 404);
+        }
+
+        return Response::json([
+            'data' => $this->transform($radio)
+        ], 200);
     }
 
     /**
@@ -87,5 +97,22 @@ class APIRadiosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function transformCollection($radios) {
+        return array_map([$this, 'transform'], $radios->toArray());
+    }
+
+    private function transform($radio) {
+        return [
+            'id'            => $radio['id'],
+            'name'          => $radio['name'],
+            'description'   => $radio['description'],
+            'logo_url'      => $radio['logo_url'],
+            'stream_url'    => $radio['stream_url'],
+            'website'       => $radio['website'],
+            'status'        => $radio['status']
+        ];
+
     }
 }
