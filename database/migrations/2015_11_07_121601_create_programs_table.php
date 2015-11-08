@@ -21,7 +21,7 @@ class CreateProgramsTable extends Migration
             $table->datetime('start_time');
             $table->datetime('end_time');
             $table->timestamps();
-            $table->integer('is_invalid')->default(0);
+            $table->integer('status')->default(0);
         });
     }
 

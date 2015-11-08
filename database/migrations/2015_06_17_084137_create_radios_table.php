@@ -19,7 +19,7 @@ class CreateRadiosTable extends Migration
             $table->string('logo_url')->default('');
             $table->string('stream_url');
             $table->string('website')->default('');
-            $table->integer('is_invalid')->default(0);
+            $table->integer('status')->default(0);
             $table->string('api_key')->default('');
             $table->integer('api_category_id')->default(0);
             $table->timestamps();
