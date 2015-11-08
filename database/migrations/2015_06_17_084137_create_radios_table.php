@@ -14,7 +14,7 @@ class CreateRadiosTable extends Migration
     {
         Schema::create('radios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->text('description');
             $table->string('logo_url')->default('');
             $table->string('stream_url');

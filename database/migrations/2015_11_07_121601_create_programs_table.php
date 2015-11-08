@@ -12,9 +12,10 @@ class CreateProgramsTable extends Migration
      */
     public function up()
     {
-        Schema::table('programs', function (Blueprint $table) {
+        Schema::create('programs', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('radio_id')->references('id')->on('radios');
+            $table->integer('radio_id')->unsigned();
+            $table->foreign('radio_id')->references('id')->on('radios')->onDelete('cascade');
             $table->string('title');
             $table->text('desc');
             $table->string('media_url');
