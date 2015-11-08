@@ -10,7 +10,7 @@ use Response;
 use App\Radio;
 use App\Helpers\Transformers\RadioTransformer;
 
-class APIRadiosController extends Controller
+class APIRadiosController extends ApiController
 {
 
     protected $radioTransformer;
@@ -28,9 +28,9 @@ class APIRadiosController extends Controller
     {
         $radios = Radio::all();
 
-        return Response::json([
+        return $this->respond([
             'data' => $this->radioTransformer->transformCollection($radios->all())
-        ], 200);
+        ]);
     }
 
     /**
@@ -64,14 +64,12 @@ class APIRadiosController extends Controller
         $radio = Radio::find($id);
 
         if (!$radio) {
-            return Response::json([
-                'error' => 'Radio does not exist'
-            ], 404);
+            return $this->respondNotFound('Radio does not exist.');
         }
 
-        return Response::json([
+        return $this->respond([
             'data' => $this->radioTransformer->transform($radio)
-        ], 200);
+        ]);
     }
 
     /**
