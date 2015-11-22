@@ -118,8 +118,7 @@ abstract class ApiBatchBase
             throw new ApiBatchException("Tried to execute curl request without base URL");
         }
 
-        $query = (count($this->params) > 0) ? '' : http_build_query($this->params);
-        $request_url = $this->url . $this->target;
+        $query = (count($this->params) > 0) ? http_build_query($this->params) : '';
 
         // Setup headers - I used the same headers from Firefox version 2.0.0.6
         // below was split up because php.net said the line was too long. :/
@@ -142,6 +141,7 @@ abstract class ApiBatchBase
                 // and set random browser strings, and browser-like settings
                 // so that it will be harder to detect
 
+                $request_url = $this->url . $this->target;
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch, CURLOPT_USERAGENT,      $this->ua_list[array_rand($this->ua_list)]);
                 curl_setopt($ch, CURLOPT_HTTPHEADER,     $header);

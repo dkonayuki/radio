@@ -6,6 +6,7 @@
 
 namespace App\ApiBatch;
 
+use \App\Program;
 use \App\Radio;
 
 /**
@@ -25,11 +26,21 @@ class ApiBatchRadiko extends ApiBatchBase
 
     /**
      * Function that returns list of programs for given radio for today
-     * @param int $radio_api_key Radio ID
+     * @param int $radio_id Radio ID
      * @return mixed Request result
      */
-    public function getPrograms($radio_api_key)
+    public function getPrograms($radio_id)
     {
+
+        try {
+            $radio = Radio::findOrFail($radio_id);
+            $radio_api_key = $radio['api_key'];
+        } catch (\Exception $ex) {
+            echo "Can't find radio with ID: [$radio_id] " . ", Err: " . $ex->getMessage(); // TODO: remove echoes
+            \Log::alert("Can't find radio with ID: [$radio_id] " . ", Err: " . $ex->getMessage());
+            return;
+        }
+
         $this->setUrl(ApiBatchRadiko::BASE_URL)
             ->setMethod(ApiBatchBase::METHOD_GET)
             ->setTarget('api/program/station/today')
@@ -44,9 +55,31 @@ class ApiBatchRadiko extends ApiBatchBase
         }
 
         // parse XML result
-        var_dump($res);
-        exit;
-        // TODO: parse images from result
+        $radiko = simplexml_load_string($res);
+        if ($radiko === false || !isset($radiko->stations->station->scd->progs)) {
+            echo "Radiko API XML parse failed for radiko station : [$radio_api_key] "; // TODO: remove echoes
+            \Log::alert("Radiko API XML parse failed for radiko station : [$radio_api_key] ");
+        }
+
+        //var_dump($radiko->stations->station->scd);
+        foreach ($radiko->stations->station->scd->progs->prog as $program) {
+            echo (string)$program->title;
+            echo "\n";
+            echo (string)$program->info;
+            echo "\n";
+            echo (string)$program['ft'];
+            echo "\n";
+            echo (string)$program['to'];
+            echo "\n";
+
+            $radio->programs()->save(new Program([
+            'title' => (string) $program->title,
+                'desc' => (string) $program->info,
+                'media_url' => '',
+                'start_time' => date('Y-m-d H:i:s', strtotime((string) $program['ft'])),
+                'end_time'   => date('Y-m-d H:i:s', strtotime((string) $program['to'])),
+            ]));
+        }
     }
 
     /**
@@ -187,38 +220,5 @@ class ApiBatchRadiko extends ApiBatchBase
         'JP46' => 'KAGOSHIMA JAPAN',
         'JP47' => 'OKINAWA JAPAN'*/
     );
-
-    /*
-     * Sample response for program list before parsing
-     *
- <radiko>
-   <ttl>1800</ttl>
-   <srvtime>1443349509</srvtime>
-   <stations>
-    <station id="FMJ">
-       <name>J-WAVE</name>
-       <scd>
-         <progs>
-           <date>20150927</date>
-           <prog ft="20150927050000" to="20150927060000" ftl="0500" tol="0600" dur="3600">
-             <title>朝ドレ情報いちばん</title>
-             <sub_title />  <pfm>田中雄介/江藤愛/岡本綾子</pfm>
-             <desc />  <info>&lt;img src=&apos;http://www.tbs.co.jp/radio/todays954/photo/tanaka_yuusuke.jpg&apos;&gt;&lt;
-    br /&gt;&lt;br /&gt;メール：&lt;a href=&quot;mailto:asadore@tbs.co.jp&quot;&gt;asadore@tbs.co.jp&lt;/a&gt;&lt;br/&gt;</info>
-             <metas>
-               <meta name="twitter" value="#radiko" />
-               <meta name="twitter-hash" value="#radiko" />
-               <meta name="facebook-fanpage" value="http://www.facebook.com/radiko.jp" />
-             </metas>
-             <url>http://www.tbs.co.jp/radio/asadore/</url>
-           </prog>
-
-           <!-- other <prog>s -->
-         </progs>
-       </scd>
-     </station>
-     <!-- other <station>s -->
-   </stations>
- </radiko>
-     * */
+    
 }

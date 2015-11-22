@@ -29,3 +29,5 @@ npm install (install elixir, npm uses package.json)
 default account: admin/foo@bar.com (password: admin)
 
 make sure to run: **gulp watch** to prepare js and css files
+
+Visit <i>/batch</i> to populate some radios
