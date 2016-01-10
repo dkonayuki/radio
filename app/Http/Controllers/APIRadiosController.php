@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Program;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -53,7 +54,11 @@ class APIRadiosController extends Controller
      */
     public function show($id)
     {
-        //
+        $radio = Radio::findOrFail($id);
+
+        return Response::json([
+            'data' => $radio->toArray()
+        ], 200);
     }
 
     /**
@@ -87,5 +92,21 @@ class APIRadiosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function programs($radio_id, $program_id = null)
+    {
+        $programs = array();
+        try {
+            if($program_id === null) {
+                $programs = Program::where('radio_id', $radio_id)
+                    ->get()->toArray();
+            } else {
+                $programs = Program::findOrFail($program_id)->toArray();
+            }
+        } catch (\Exception $ex) {}
+        return Response::json([
+            'data' => $programs
+        ], 200);
     }
 }

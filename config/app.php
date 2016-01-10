@@ -147,6 +147,7 @@ return [
         'App\Providers\ViewControllerNameProvider',
         'App\Providers\ViewComposerServiceProvider',
         'Illuminate\Html\HtmlServiceProvider'
+
     ],
 
     /*
@@ -196,6 +197,7 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
 
     ],
 

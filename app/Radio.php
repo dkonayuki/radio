@@ -42,8 +42,8 @@ class Radio extends Model
 
     public function getImgUrl()
     {
-        if ($this->image != '') {
-            return asset('uploads/radios/' . $this->id . '/' . $this->logo_url);
+        if ($this->logo_url != '') {
+            return asset($this->logo_url);
         }
         return asset('images/radio_logo.jpg');
     }
