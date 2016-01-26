@@ -31,5 +31,7 @@ Route::controllers([
 
 Route::group(['prefix' => 'api/v1.0'], function()
 {
-    Route::resource('radios', 'APIRadiosController');
+    #Route::resource('radios', 'APIRadiosController');
+    Route::get('radios', ['middleware' => 'auth.basic', 'uses' => 'APIRadiosController@index']);
+    Route::get('radios/{id}', ['middleware' => 'auth.basic', 'uses' => 'APIRadiosController@show']);
 });

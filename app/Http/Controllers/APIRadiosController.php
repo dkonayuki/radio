@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Response;
+use Input;
 use App\Radio;
 use App\Helpers\Transformers\RadioTransformer;
 
@@ -17,6 +18,9 @@ class APIRadiosController extends ApiController
 
     function __construct() {
         $this->radioTransformer = new RadioTransformer;
+
+        #not working
+        #$this->beforeFilter('auth.basic');
     }
 
     /**
@@ -26,10 +30,20 @@ class APIRadiosController extends ApiController
      */
     public function index()
     {
-        $radios = Radio::all();
+        $limit = Input::get('limit') ?: 3;
+        $radios = Radio::paginate($limit);
+
+        #data dump 
+        #dd(get_class_methods($radios));
 
         return $this->respond([
-            'data' => $this->radioTransformer->transformCollection($radios->all())
+            'data' => $this->radioTransformer->transformCollection($radios->all()),
+            'paginator' => [
+                'total_count' => $radios->total(),
+                'total_pages' => ceil($radios->total() / $radios->perPage()),
+                'current_page' => $radios->currentPage(),
+                'limit' => $radios->perPage()
+            ]
         ]);
     }
 
@@ -48,9 +62,8 @@ class APIRadiosController extends ApiController
      *
      * @return Response
      */
-    public function store()
-    {
-        //
+    public function store() {
+        echo "store\n";
     }
 
     /**
