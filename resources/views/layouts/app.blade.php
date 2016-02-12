@@ -5,7 +5,7 @@
 {!! HTML::script('bower_components/bootstrap/dist/js/bootstrap.js') !!}
 {!! HTML::script('bower_components/typeahead.js/dist/typeahead.bundle.min.js') !!}
 {!! HTML::script('js/app.js') !!}
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 {!! HTML::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
 {!! HTML::style('css/app.css') !!}
 <meta name='csrf-token' content='{{ csrf_token() }}'/>

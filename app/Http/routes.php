@@ -33,7 +33,9 @@ Route::group(['prefix' => 'api/v1.0'], function()
 {
     Route::get( 'radios/{radio}/programs/', 'APIRadiosController@programs');
     Route::get( 'radios/{radio}/programs/{program}', 'APIRadiosController@programs');
-    Route::resource('radios', 'APIRadiosController');
+    #Route::resource('radios', 'APIRadiosController');
+    Route::get('radios', ['middleware' => 'auth.basic', 'uses' => 'APIRadiosController@index']);
+    Route::get('radios/{id}', ['middleware' => 'auth.basic', 'uses' => 'APIRadiosController@show']);
 });
 
 Route::get( 'batch/update', 'ApiBatchController@update');

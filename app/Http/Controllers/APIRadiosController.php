@@ -8,10 +8,22 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Response;
+use Input;
 use App\Radio;
+use App\Helpers\Transformers\RadioTransformer;
 
-class APIRadiosController extends Controller
+class APIRadiosController extends ApiController
 {
+
+    protected $radioTransformer;
+
+    function __construct() {
+        $this->radioTransformer = new RadioTransformer;
+
+        #not working
+        #$this->beforeFilter('auth.basic');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,11 +31,21 @@ class APIRadiosController extends Controller
      */
     public function index()
     {
-        $radios = Radio::all();
+        $limit = Input::get('limit') ?: 3;
+        $radios = Radio::paginate($limit);
 
-        return Response::json([
-            'data' => $radios->toArray()
-        ], 200);
+        #data dump 
+        #dd(get_class_methods($radios));
+
+        return $this->respond([
+            'data' => $this->radioTransformer->transformCollection($radios->all()),
+            'paginator' => [
+                'total_count' => $radios->total(),
+                'total_pages' => ceil($radios->total() / $radios->perPage()),
+                'current_page' => $radios->currentPage(),
+                'limit' => $radios->perPage()
+            ]
+        ]);
     }
 
     /**
@@ -41,9 +63,8 @@ class APIRadiosController extends Controller
      *
      * @return Response
      */
-    public function store()
-    {
-        //
+    public function store() {
+        echo "store\n";
     }
 
     /**
@@ -54,11 +75,15 @@ class APIRadiosController extends Controller
      */
     public function show($id)
     {
-        $radio = Radio::findOrFail($id);
+        $radio = Radio::find($id);
 
-        return Response::json([
-            'data' => $radio->toArray()
-        ], 200);
+        if (!$radio) {
+            return $this->respondNotFound('Radio does not exist.');
+        }
+
+        return $this->respond([
+            'data' => $this->radioTransformer->transform($radio)
+        ]);
     }
 
     /**
