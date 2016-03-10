@@ -14,16 +14,24 @@ class RadioTableSeeder extends Seeder
     {
         DB::table('radios')->delete();
 
-        $radios = array(
-            ['name' => 'BBC 1', 'stream_url' => 'http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk', 'description' => ''],
-            ['name' => 'BBC 2', 'stream_url' => 'http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk', 'description' => ''],
-        );
+        $path = base_path() . '/stations.json';
+
+        if (!File::exists($path)) {
+            throw new Exception('Invalid File');
+        }
+
+        $file = File::get($path);
+
+        *Log::info('File:' . print_r($file, true));
+
+        $radios = json_decode($file, true);
 
         DB::table('radios')->insert($radios);
 
-        $faker = Faker\Factory::create();
+        #$faker = Faker\Factory::create();
         #App\Radio::truncate();
 
+        /*
         foreach(range(1, 30) as $index)
         {
             App\Radio::create([
@@ -32,6 +40,7 @@ class RadioTableSeeder extends Seeder
                 'stream_url' => $faker->sentence
             ]);
         }
+         */
     }
 }
 

@@ -81,7 +81,7 @@ class RefreshStream extends Command
 
     private function refreshURL(Radio $radio)
     {
-        $url = $radio->website;
+        $url = $radio->tunein_url;
         //$url = "http://tunein.com/espnradio/";
         $this->info('Radio: "' . $radio->name . '",  Website: ' . $url);
         try
