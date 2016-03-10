@@ -22,7 +22,7 @@ class RadioTableSeeder extends Seeder
 
         $file = File::get($path);
 
-        *Log::info('File:' . print_r($file, true));
+        #Log::info('File:' . print_r($file, true));
 
         $radios = json_decode($file, true);
 

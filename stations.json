@@ -16,5 +16,11 @@
 		"stream_url": "http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk",
 		"description": "",
 		"tunein_url": "http://tunein.com/radio/BBC-Radio-3-913-s24941/"
+	},
+	{
+		"name": "FOX News Talk",
+		"stream_url": "http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk",
+		"description": "",
+		"tunein_url": "http://tunein.com/radio/FOX-News-Talk-s20431/"
 	}
 ]
