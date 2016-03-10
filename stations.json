@@ -1,0 +1,20 @@
+[
+	{
+		"name": "BBC 1",
+		"stream_url": "http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk",
+		"description": "",
+		"tunein_url": "http://tunein.com/radio/BBC-Radio-1-988-s24939/"
+	},
+	{
+		"name": "BBC 2",
+		"stream_url": "http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk",
+		"description": "",
+		"tunein_url": "http://tunein.com/radio/BBC-Radio-2-891-s24940/"
+	},
+	{
+		"name": "BBC 3",
+		"stream_url": "http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk",
+		"description": "",
+		"tunein_url": "http://tunein.com/radio/BBC-Radio-3-913-s24941/"
+	}
+]
